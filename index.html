@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Slice Calculator</title>
+	<script>
+	  function calculate()
+	  {
+       var perslice = 0;
+       var leftovers = 0;
+
+
+       //1) Get the amount of people attending the party from the "people" text-box
+       var people = document.getElementById("people").value;
+
+	     //2) Get the amount of slices they are ordering from the "slices" text-box
+       var slices = document.getElementById("slices").value;
+
+       //3) Calculate the amount of slices everyone gets (Division)
+       perslice = Math.round(slices / people);
+
+       //4) Calculate the amount of slices leftover (Modulus)
+       leftovers = slices % people;
+
+       //5) Print both amount of slices everyone gets and leftovers in the span tag "result"
+       document.getElementById("result").innerHTML = 'Each person gets '  + perslice + ' pizza slices with ' + leftovers + ' slices leftover.';
+	  }
+	</script>
+  </head>
+  <body>
+	<h2>Size to Slices Chart</h2>
+    <p>Small Pizza: 6 slices.</p>
+	<p>Medium Pizza: 8 slices.</p>
+	<p>Large Pizza: 10 slices.</p>
+    <p>Extra-large Pizza: 12 slices.</p>
+	<br>
+	<p>How Many People: </p><input type = "text" id = "people">
+	<br>
+	<p>How Many Slices: </p><input type = "text" id = "slices">
+	<br>
+	<input type = "button" value = "submit" onclick = "calculate()">
+    <br><hr><br>
+
+	 <span id = "result"></span>
+  </body>
+</html>
